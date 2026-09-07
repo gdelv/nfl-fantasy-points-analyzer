@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DollarSign, ChevronRight } from 'lucide-react';
 import { ALL_PLAYERS } from '../data/allPlayers';
@@ -13,6 +13,7 @@ import PosFilterChips from '../components/PosFilterChips';
 export default function Contracts() {
   const { posFilter, setPosFilter, mode } = useFilters();
   const navigate = useNavigate();
+  const [starterOnly, setStarterOnly] = useState(false);
 
   const expiringContracts = useMemo(() => {
     let list = ALL_PLAYERS.filter((p) => {
@@ -20,6 +21,7 @@ export default function Contracts() {
       return c && c.end === 2026;
     });
     if (posFilter !== 'ALL') list = list.filter((p) => p.pos === posFilter);
+    if (starterOnly) list = list.filter((p) => STARTER_IDS.has(p.id));
     return list
       .map((p) => ({
         ...p,
@@ -33,7 +35,7 @@ export default function Contracts() {
         const ageB = b.age === null ? 999 : b.age;
         return ageA - ageB;
       });
-  }, [posFilter]);
+  }, [posFilter, starterOnly]);
 
   return (
     <>
@@ -45,16 +47,25 @@ export default function Contracts() {
       <div className="nfa-controls">
         <PlayerSearch players={ALL_PLAYERS} posFilter={posFilter} mode={mode} />
         <PosFilterChips value={posFilter} onChange={setPosFilter} />
+        <button
+          className={`nfa-pos-chip nfa-starter-toggle ${starterOnly ? 'active' : ''}`}
+          onClick={() => setStarterOnly(!starterOnly)}
+          title={starterOnly ? 'Showing starters only — click to show everyone' : 'Show only current depth-chart starters'}
+        >
+          ★ Starters
+        </button>
       </div>
 
       <div className="nfa-board">
         <div className="nfa-board-head">
           <DollarSign size={16} />
-          Contract Year Watch — 2026 {posFilter !== 'ALL' ? `· ${POS_LABEL[posFilter]}` : ''}
+          Contract Year Watch — 2026 {posFilter !== 'ALL' ? `· ${POS_LABEL[posFilter]}` : ''}{starterOnly ? ' · Starters only' : ''}
         </div>
         <p className="nfa-expiring-sub">Grouped by position, youngest first. <span className="nfa-starter-star">★</span> marks a current depth-chart starter.</p>
         {expiringContracts.length === 0 && (
-          <p className="nfa-injury-empty">No expiring contracts on file for this position.</p>
+          <p className="nfa-injury-empty">
+            {starterOnly ? 'No current starters with an expiring contract for this position.' : 'No expiring contracts on file for this position.'}
+          </p>
         )}
         {expiringContracts.map((p) => (
           <div key={p.id} className="nfa-board-row" onClick={() => navigate(`/players/${p.id}`)}>
