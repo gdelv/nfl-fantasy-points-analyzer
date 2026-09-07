@@ -52,3 +52,15 @@ export const STATUS_COLOR = {
   Doubtful: '#E0663D',
   Questionable: '#F5B700',
 };
+
+// Combine drills: `better` sets sort direction for leaderboards ('asc' = lowest wins, e.g. a fast 40 time).
+export const DRILLS = [
+  { key: 'forty', label: '40 Yard Dash', better: 'asc', parse: (v) => parseFloat(v), format: (v) => `${v}s` },
+  { key: 'vert', label: 'Vertical Jump', better: 'desc', parse: (v) => parseFloat(v), format: (v) => `${v}"` },
+  { key: 'broad', label: 'Broad Jump', better: 'desc', parse: (v) => parseFloat(v), format: (v) => `${v}"` },
+  { key: 'bench', label: 'Bench Press', better: 'desc', parse: (v) => parseFloat(v), format: (v) => `${v} reps` },
+  { key: 'cone', label: '3-Cone Drill', better: 'asc', parse: (v) => parseFloat(v), format: (v) => `${v}s` },
+  { key: 'shuttle', label: 'Shuttle', better: 'asc', parse: (v) => parseFloat(v), format: (v) => `${v}s` },
+  { key: 'ht', label: 'Height', better: 'desc', parse: (v) => { const [ft, inch] = v.split('-').map(Number); return ft * 12 + inch; }, format: (v) => v },
+  { key: 'wt', label: 'Weight', better: 'desc', parse: (v) => parseFloat(v), format: (v) => `${v} lb` },
+];

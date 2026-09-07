@@ -200,6 +200,27 @@ export default function GlobalStyle() {
         cursor: pointer;
       }
       .nfa-mode-btn.active { background: var(--chalk); color: #0A0E13; border-color: var(--chalk); }
+      .nfa-mode-row-wrap { flex-wrap: wrap; }
+
+      .nfa-board-row.active { background: rgba(245,183,0,0.1); }
+      .nfa-bp-bar-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        min-width: 100px;
+      }
+      .nfa-bp-bar-track {
+        flex: 1;
+        height: 8px;
+        background: var(--panel-2);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .nfa-bp-bar-fill {
+        height: 100%;
+        background: var(--gold);
+        border-radius: 4px;
+      }
 
       /* leaderboard (empty state) */
       .nfa-board {

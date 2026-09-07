@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Trophy, DollarSign, ChevronRight } from 'lucide-react';
+import { Trophy, DollarSign, ChevronRight, Activity, Ruler } from 'lucide-react';
 import { ALL_PLAYERS } from '../data/allPlayers';
 import CONTRACT_DATA from '../data/contracts.json';
 import BIRTHDATE_DATA from '../data/birthdates.json';
@@ -53,6 +53,25 @@ export default function Home() {
       <div className="nfa-controls">
         <PlayerSearch players={ALL_PLAYERS} posFilter={posFilter} mode={mode} />
         <PosFilterChips value={posFilter} onChange={setPosFilter} />
+      </div>
+
+      <div className="nfa-quick-links">
+        <Link to="/leaders" className="nfa-quick-link">
+          <div className="nfa-quick-link-title"><Trophy size={16} /> Career Leaders</div>
+          <div className="nfa-quick-link-sub">All-time fantasy scoring, 1999–2025</div>
+        </Link>
+        <Link to="/contracts" className="nfa-quick-link">
+          <div className="nfa-quick-link-title"><DollarSign size={16} /> Contract Watch</div>
+          <div className="nfa-quick-link-sub">Players entering a contract year in 2026</div>
+        </Link>
+        <Link to="/injuries" className="nfa-quick-link">
+          <div className="nfa-quick-link-title"><Activity size={16} /> Injury Report</div>
+          <div className="nfa-quick-link-sub">League-wide injury trends, 2009–2025</div>
+        </Link>
+        <Link to="/combine" className="nfa-quick-link">
+          <div className="nfa-quick-link-title"><Ruler size={16} /> Combine Explorer</div>
+          <div className="nfa-quick-link-sub">Rank prospects by drill and position</div>
+        </Link>
       </div>
 
       <div className="nfa-board">

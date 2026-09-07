@@ -5,6 +5,8 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Leaders from './pages/Leaders';
 import Contracts from './pages/Contracts';
+import Injuries from './pages/Injuries';
+import Combine from './pages/Combine';
 import PlayerDetail from './pages/PlayerDetail';
 import NotFound from './pages/NotFound';
 
@@ -16,6 +18,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/leaders" element={<Leaders />} />
           <Route path="/contracts" element={<Contracts />} />
+          <Route path="/injuries" element={<Injuries />} />
+          <Route path="/combine" element={<Combine />} />
           <Route path="/players/:id" element={<PlayerDetail />} />
           <Route path="*" element={<NotFound />} />
         </Route>

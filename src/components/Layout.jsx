@@ -14,6 +14,8 @@ export default function Layout() {
           <NavLink to="/" end className={({ isActive }) => `nfa-nav-link ${isActive ? 'active' : ''}`}>Home</NavLink>
           <NavLink to="/leaders" className={({ isActive }) => `nfa-nav-link ${isActive ? 'active' : ''}`}>Leaders</NavLink>
           <NavLink to="/contracts" className={({ isActive }) => `nfa-nav-link ${isActive ? 'active' : ''}`}>Contracts</NavLink>
+          <NavLink to="/injuries" className={({ isActive }) => `nfa-nav-link ${isActive ? 'active' : ''}`}>Injuries</NavLink>
+          <NavLink to="/combine" className={({ isActive }) => `nfa-nav-link ${isActive ? 'active' : ''}`}>Combine</NavLink>
         </nav>
 
         <Outlet />
