@@ -13,6 +13,7 @@ import { useFilters } from '../context/FiltersContext';
 import ModeToggle from '../components/ModeToggle';
 import ChartTooltip from '../components/ChartTooltip';
 import InjuryBodyMap from '../components/InjuryBodyMap';
+import PlayerCompare from '../components/PlayerCompare';
 
 export default function PlayerDetail() {
   const { id } = useParams();
@@ -174,6 +175,10 @@ export default function PlayerDetail() {
             </tbody>
           </table>
         </div>
+      </div>
+
+      <div style={{ marginTop: 22 }}>
+        <PlayerCompare selected={selected} allPlayers={ALL_PLAYERS} mode={mode} modeLabel={modeLabel} />
       </div>
 
       <div className="nfa-injury-card">

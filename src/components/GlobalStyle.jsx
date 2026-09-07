@@ -526,6 +526,86 @@ export default function GlobalStyle() {
         color: var(--gold);
       }
 
+      .nfa-compare-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .nfa-compare-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        padding: 14px 18px 0;
+        margin: 0;
+      }
+      .nfa-compare-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 18px 0;
+      }
+      .nfa-compare-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 5px 6px 5px 10px;
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--text);
+      }
+      .nfa-compare-chip-self { padding-right: 12px; font-weight: 600; }
+      .nfa-compare-chip-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: inline-block;
+      }
+      .nfa-compare-chip-link {
+        background: none;
+        border: none;
+        color: var(--text);
+        font: inherit;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nfa-compare-chip-link:hover { color: var(--gold); text-decoration: underline; }
+      .nfa-compare-chip-remove {
+        background: rgba(236,239,234,0.08);
+        border: none;
+        color: var(--text-muted);
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .nfa-compare-chip-remove:hover { background: var(--red); color: var(--text); }
+      .nfa-compare-search-wrap {
+        position: relative;
+        margin: 12px 18px 0;
+      }
+      .nfa-compare-search-input { padding: 9px 14px 9px 34px; font-size: 13px; }
+      .nfa-compare-tt-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: var(--text);
+        padding: 2px 0;
+      }
+      .nfa-compare-tt-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+      .nfa-compare-tt-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
+      .nfa-compare-tt-val { font-weight: 700; color: var(--gold); }
+      .nfa-compare-table { min-width: 560px; }
+      tr.nfa-compare-row-self { background: rgba(245,183,0,0.06); }
+
       .nfa-injury-card {
         border: 1px solid var(--border);
         border-radius: 14px;

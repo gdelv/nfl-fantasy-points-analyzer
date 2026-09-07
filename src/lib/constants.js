@@ -18,6 +18,10 @@ export const POS_LABEL = {
   TE: 'Tight End',
 };
 
+// Palette for comparison-chart lines, assigned in order. Distinct from every POS_COLOR value
+// (the primary player's line always uses their POS_COLOR) so no two lines ever share a hue.
+export const COMPARE_COLORS = ['#9B6BD1', '#4FC3F7', '#E85D75', '#8BC34A'];
+
 export const MODES = [
   { key: 'std', label: 'Standard' },
   { key: 'h', label: 'Half-PPR' },
